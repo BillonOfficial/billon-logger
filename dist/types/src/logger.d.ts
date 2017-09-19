@@ -5,5 +5,6 @@ export declare const logger: winston.LoggerInstance;
 export interface ShardLogger extends winston.LoggerInstance {
     start: () => void;
     end: () => void;
+    child: (childLabel: string) => ShardLogger;
 }
 export declare const childLogger: (filePath: string) => ShardLogger;

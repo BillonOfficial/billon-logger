@@ -1,7 +1,7 @@
 {
   "name": "@billon/logger",
   "version": "0.0.0",
-  "description": "",
+  "description": "[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![Greenkeeper badge](https://badges.greenkeeper.io/radarsu/typescript-library-starter.svg)](https://greenkeeper.io/) [![Travis](https://img.shields.io/travis/radarsu/typescript-library-starter.svg)](https://travis-ci.org/radarsu/typescript-library-starter) [![Coveralls](https://img.shields.io/coveralls/radarsu/typescript-library-starter.svg)](https://coveralls.io/github/radarsu/typescript-library-starter) [![Dev Dependencies](https://david-dm.org/radarsu/typescript-library-starter/dev-status.svg)](https://david-dm.org/radarsu/typescript-library-starter?type=dev) [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg)](https://paypal.me/AJoverMorales)",
   "keywords": [],
   "main": "dist/src/index.js",
   "module": "dist/src/index.js",
@@ -119,5 +119,8 @@
     "winston": "^2.3.1",
     "winston-daily-rotate-file": "^1.5.0",
     "yargs": "^8.0.2"
+  },
+  "directories": {
+    "test": "test"
   }
 }

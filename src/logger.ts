@@ -65,6 +65,7 @@ export const logger = new winston.Logger(winstonConfig);
 export interface ShardLogger extends winston.LoggerInstance {
     start: () => void;
     end: () => void;
+    child: (childLabel: string) => ShardLogger;
 }
 
 const childLoggerCache = new Set<string>();
@@ -74,12 +75,12 @@ export const childLogger = (filePath: string): ShardLogger => {
 
     const label = path.basename(filePath.replace(/\.[^/.]+$/, ''));
 
-    const childConsoleConfig = _.extend(winstonConsoleConfig, {
+    const consoleConfig = _.extend(winstonConsoleConfig, {
         label,
     });
 
     const winstonLogger = winston.loggers.add(label, {
-        console: childConsoleConfig,
+        console: consoleConfig,
         transports: [
             dailyRotateTransport,
         ],
@@ -91,6 +92,9 @@ export const childLogger = (filePath: string): ShardLogger => {
         },
         end: () => {
             winstonLogger.debug(`</end>`);
+        },
+        child: (childLabel: string) => {
+            return childLogger(`${filePath}:${childLabel}`);
         },
     };
 

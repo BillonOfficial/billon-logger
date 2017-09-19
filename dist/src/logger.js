@@ -49,11 +49,11 @@ exports.logger = new importer_1.winston.Logger(winstonConfig);
 const childLoggerCache = new Set();
 exports.childLogger = (filePath) => {
     const label = importer_1.path.basename(filePath.replace(/\.[^/.]+$/, ''));
-    const childConsoleConfig = importer_1._.extend(winstonConsoleConfig, {
+    const consoleConfig = importer_1._.extend(winstonConsoleConfig, {
         label,
     });
     const winstonLogger = importer_1.winston.loggers.add(label, {
-        console: childConsoleConfig,
+        console: consoleConfig,
         transports: [
             dailyRotateTransport,
         ],
@@ -64,6 +64,9 @@ exports.childLogger = (filePath) => {
         },
         end: () => {
             winstonLogger.debug(`</end>`);
+        },
+        child: (childLabel) => {
+            return exports.childLogger(`${filePath}:${childLabel}`);
         },
     };
     const shardLogger = importer_1._.extend({}, winstonLogger, extension);
