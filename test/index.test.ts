@@ -1,5 +1,5 @@
 import {
-    BillonLogger,
+    BillonLogger, newLine,
 } from '../src';
 
 describe('BillonLogger test', () => {
@@ -22,13 +22,13 @@ describe('BillonLogger test', () => {
                 return `Billon.Me - log.errors`;
             },
             async html(msg: string, meta: string[]) {
-                return meta.join(', ');
+                return meta.join(newLine);
             },
             async to(msg: string, meta: string[]) {
                 return `rkrohmorath@gmail.com`;
             },
             async from(msg: string, meta: string[]) {
-                return 'billonme';
+                return '"Billon.me" <info@billon.me>';
             },
         },
     };
@@ -40,7 +40,7 @@ describe('BillonLogger test', () => {
     });
 
     it('works if sent mail', async () => {
-        const info = await log.critical(`test error email`);
+        const info = await log.critical(`test error email`, `example error 1`, `example error 2`);
         log.debug(`info`, info);
     });
 });

@@ -4,6 +4,8 @@ import {
 
 import smtpTransport = require('nodemailer-smtp-transport');
 
+export const newLine = '<br/>';
+
 export type LogLevel = 'silly' | 'debug' | 'verbose' | 'info' | 'warn' | 'error';
 
 export interface EmailErrorsConfig {
