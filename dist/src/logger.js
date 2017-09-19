@@ -106,7 +106,7 @@ class BillonLogger {
                 return info;
             }),
             child: (childLabel, childConfig = config) => {
-                return this.child(`${fileName}:${childLabel}`, childConfig);
+                return this.child(`${label}-${childLabel}`, childConfig);
             },
         };
         const billonChildLogger = importer_1._.extend({}, winstonLogger, extension);
