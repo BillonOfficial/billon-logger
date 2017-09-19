@@ -125,7 +125,7 @@ export class BillonLogger {
                 return info;
             },
             child: (childLabel: string, childConfig = config) => {
-                return this.child(`${fileName}:${childLabel}`, childConfig);
+                return this.child(`${label}-${childLabel}`, childConfig);
             },
         };
 
