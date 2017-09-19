@@ -88,6 +88,9 @@ class BillonLogger {
             end: () => {
                 winstonLogger.debug(`</end>`);
             },
+            raw: (msg, ...meta) => {
+                console.log(msg, ...meta);
+            },
             critical: (msg, ...meta) => __awaiter(this, void 0, void 0, function* () {
                 winstonLogger.error(msg, ...meta);
                 if (!config.emailErrors || !config.emailErrors.active) {

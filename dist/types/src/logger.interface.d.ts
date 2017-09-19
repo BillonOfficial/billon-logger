@@ -17,6 +17,7 @@ export interface EmailErrorsConfig {
 export interface BillonChildLoggerMethods {
     start: () => void;
     end: () => void;
+    raw: (msg: string, ...meta: any[]) => void;
     critical: (msg: string, ...meta: any[]) => Promise<void | nodemailer.SentMessageInfo>;
     child: (childLabel: string, config?: BillonLoggerConfig) => BillonChildLogger;
 }

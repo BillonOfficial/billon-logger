@@ -101,6 +101,11 @@ export class BillonLogger {
             end: () => {
                 winstonLogger.debug(`</end>`);
             },
+            raw: (msg: string, ...meta: any[]) => {
+                /* tslint:disable:no-console */
+                console.log(msg, ...meta);
+                /* tslint:enable:no-console */
+            },
             critical: async (msg: string, ...meta: any[]) => {
                 winstonLogger.error(msg, ...meta);
 
