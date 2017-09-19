@@ -5,6 +5,7 @@ exports._ = require("lodash");
 exports.appRootPath = require("app-root-path");
 exports.colors = require("colors");
 exports.moment = require("moment");
+exports.nodemailer = require("nodemailer");
 exports.winston = require("winston");
 exports.yargs = require("yargs");
 exports.winstonDailyRotateFile = require('winston-daily-rotate-file');

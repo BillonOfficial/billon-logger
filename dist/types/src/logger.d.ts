@@ -1,10 +1,7 @@
-/// <reference types="winston" />
-import { winston } from './importer';
-export declare type LogLevel = 'silly' | 'debug' | 'verbose' | 'info' | 'warn' | 'error';
-export declare const logger: winston.LoggerInstance;
-export interface ShardLogger extends winston.LoggerInstance {
-    start: () => void;
-    end: () => void;
-    child: (childLabel: string) => ShardLogger;
+import { BillonLoggerConfig, BillonChildLogger } from './logger.interface';
+export declare class BillonLogger {
+    config: BillonLoggerConfig;
+    private childrenCache;
+    constructor();
+    child(fileName: string, config?: BillonLoggerConfig): BillonChildLogger;
 }
-export declare const childLogger: (filePath: string) => ShardLogger;
